@@ -1,6 +1,6 @@
 from flask import Flask
 from app.auth.oauth import oauth_bp, configure_oauth
-from web import web_bp, fetch_weather_update
+from app.routes.web import web_bp, fetch_weather_update
 from dotenv import load_dotenv
 import os
 import threading
