@@ -1,5 +1,4 @@
 from flask import Flask
-from flask_talisman import Talisman
 from app.auth.oauth import oauth_bp, configure_oauth
 from app.routes.web import web_bp, fetch_weather_update
 from dotenv import load_dotenv
@@ -17,7 +16,6 @@ def start_notification_thread():
 
 
 app = Flask(__name__)
-Talisman(app)
 app.config.from_object('app.config.DevelopmentConfig')
 
 # Initialize OAuth2.0 providers configurations
