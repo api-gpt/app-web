@@ -18,6 +18,7 @@ distro==1.9.0
 flake8==7.1.0
 Flask==3.0.3
 Flask-Session==0.8.0
+flask-talisman==1.1.0
 frozenlist==1.4.1
 google-api-core==2.19.0
 google-auth==2.29.0
@@ -51,7 +52,7 @@ pycparser==2.22
 pydantic==2.8.2
 pydantic_core==2.20.1
 pyflakes==3.2.0
-PyMySQL==1.1.1
+PyMySQL==1.1.0
 pytest==8.2.2
 python-dotenv==1.0.1
 requests==2.32.3
