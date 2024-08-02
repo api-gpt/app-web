@@ -1,5 +1,5 @@
 from flask import Flask
-from oauth import oauth_bp, configure_oauth
+from app.auth.oauth import oauth_bp, configure_oauth
 from web import web_bp, fetch_weather_update
 from dotenv import load_dotenv
 import os
