@@ -14,24 +14,21 @@ def start_notification_thread():
     notification_thread.start()
 
 
-def create_app():
-    app = Flask(__name__)
-    app.config.from_object('app.config.DevelopmentConfig')
 
-    # Initialize OAuth2.0 providers configurations
-    configure_oauth(app)
+app = Flask(__name__)
+app.config.from_object('app.config.DevelopmentConfig')
 
-    # Initialize OAuth and register blueprints
-    app.register_blueprint(oauth_bp)
-    app.register_blueprint(web_bp, url_prefix='/')
+# Initialize OAuth2.0 providers configurations
+configure_oauth(app)
 
-    # Start the notification thread
-    start_notification_thread()
+# Initialize OAuth and register blueprints
+app.register_blueprint(oauth_bp)
+app.register_blueprint(web_bp, url_prefix='/')
 
-    return app
+# Start the notification thread
+start_notification_thread()
 
 
 if __name__ == '__main__':
-    app = create_app()
     port = int(os.environ.get('PORT', 8080))
     app.run(debug=True, host='0.0.0.0', port=port)
