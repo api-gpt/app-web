@@ -63,6 +63,7 @@ def oauth2_login(provider):
     # Dynamically create the client and authorize redirect
     redirect_uri = url_for('oauth.oauth2_authorize',
                            provider=provider, _external=True)
+    print(redirect_uri)
     return (oauth.create_client(provider)
             .authorize_redirect(redirect_uri, state=state))
 
