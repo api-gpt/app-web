@@ -1,4 +1,5 @@
 from flask import Flask
+from flask_talisman import Talisman
 from app.auth.oauth import oauth_bp, configure_oauth
 from app.routes.web import web_bp, fetch_weather_update
 from dotenv import load_dotenv
@@ -16,6 +17,7 @@ def start_notification_thread():
 
 
 app = Flask(__name__)
+Talisman(app)
 app.config.from_object('app.config.DevelopmentConfig')
 
 # Initialize OAuth2.0 providers configurations
@@ -30,5 +32,4 @@ start_notification_thread()
 
 
 if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 8080))
-    app.run(debug=True, host='0.0.0.0', port=port)
+    app.run()
